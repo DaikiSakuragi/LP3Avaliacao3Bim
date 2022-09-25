@@ -1,0 +1,15 @@
+@model List<LP3Avaliacao3Bim.ViewModels.EstabelecimentoViewModel>
+
+@{
+    ViewData["Title"] = "Estabelecimentos";    
+}
+
+<h1>Estabelecimentos</h1>
+
+@foreach(var estabelecimento in Model)
+{
+    <h3>@estabelecimento.Nome</h3>
+    <p>@estabelecimento.Piso</p>
+    <p>@estabelecimento.Descricao</p>
+    <hr>
+}
