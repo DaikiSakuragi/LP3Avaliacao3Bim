@@ -27,7 +27,12 @@ public class EstabelecimentoController : Controller
         return View(estabelecimentos);
     }
 
-    public IActionResult Cadastro(int id, string piso, string nome, string descricao, string tipoestabelecimento, string email)
+    public IActionResult Cadastro()
+    {
+        return View();
+    }
+
+    public IActionResult Cadastramento(int id, string piso, string nome, string descricao, string tipoestabelecimento, string email)
     {  
         foreach (var estabelecimento in estabelecimentos)
         {
@@ -39,7 +44,7 @@ public class EstabelecimentoController : Controller
             
         id = estabelecimentos.Count + 1;
         estabelecimentos.Add(new EstabelecimentoViewModel(id, piso, nome, descricao, tipoestabelecimento, email));
-        return View("Cadastro");
+        return RedirectToAction("Admin");
     }
 
     public IActionResult Excluir(int id)
